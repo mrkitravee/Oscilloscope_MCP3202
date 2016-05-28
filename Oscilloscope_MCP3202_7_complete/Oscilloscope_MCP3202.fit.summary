@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun May 29 00:46:23 2016
+Quartus II 32-bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Revision Name : Oscilloscope_MCP3202
+Top-level Entity Name : Oscilloscope_MCP3202
+Family : Cyclone III
+Device : EP3C10E144C8
+Timing Models : Final
+Total logic elements : 347 / 10,320 ( 3 % )
+    Total combinational functions : 331 / 10,320 ( 3 % )
+    Dedicated logic registers : 193 / 10,320 ( 2 % )
+Total registers : 193
+Total pins : 8 / 95 ( 8 % )
+Total virtual pins : 0
+Total memory bits : 0 / 423,936 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
