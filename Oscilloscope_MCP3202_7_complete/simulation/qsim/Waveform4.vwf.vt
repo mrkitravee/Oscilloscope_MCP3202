@@ -1,0 +1,426 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "05/03/2016 16:52:48"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    Ossiloscope_MCP3202
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module Ossiloscope_MCP3202_vlg_sample_tst(
+	CLK,
+	RST_N,
+	SPI_MISO,
+	STARTX,
+	sampler_tx
+);
+input  CLK;
+input  RST_N;
+input  SPI_MISO;
+input  STARTX;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(CLK or RST_N or SPI_MISO or STARTX)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module Ossiloscope_MCP3202_vlg_check_tst (
+	ack_o,
+	Detect_to_tx,
+	SPI_MOSI,
+	SPI_SCK,
+	SPI_SS_N,
+	TX_out,
+	sampler_rx
+);
+input  ack_o;
+input [3:0] Detect_to_tx;
+input  SPI_MOSI;
+input  SPI_SCK;
+input  SPI_SS_N;
+input  TX_out;
+input sampler_rx;
+
+reg  ack_o_expected;
+reg [3:0] Detect_to_tx_expected;
+reg  SPI_MOSI_expected;
+reg  SPI_SCK_expected;
+reg  SPI_SS_N_expected;
+reg  TX_out_expected;
+
+reg  ack_o_prev;
+reg [3:0] Detect_to_tx_prev;
+reg  SPI_MOSI_prev;
+reg  SPI_SCK_prev;
+reg  SPI_SS_N_prev;
+reg  TX_out_prev;
+
+reg  ack_o_expected_prev;
+reg [3:0] Detect_to_tx_expected_prev;
+reg  SPI_MOSI_expected_prev;
+reg  SPI_SCK_expected_prev;
+reg  SPI_SS_N_expected_prev;
+reg  TX_out_expected_prev;
+
+reg  last_ack_o_exp;
+reg [3:0] last_Detect_to_tx_exp;
+reg  last_SPI_MOSI_exp;
+reg  last_SPI_SCK_exp;
+reg  last_SPI_SS_N_exp;
+reg  last_TX_out_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:6] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 6'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	ack_o_prev = ack_o;
+	Detect_to_tx_prev = Detect_to_tx;
+	SPI_MOSI_prev = SPI_MOSI;
+	SPI_SCK_prev = SPI_SCK;
+	SPI_SS_N_prev = SPI_SS_N;
+	TX_out_prev = TX_out;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	ack_o_expected_prev = ack_o_expected;
+	Detect_to_tx_expected_prev = Detect_to_tx_expected;
+	SPI_MOSI_expected_prev = SPI_MOSI_expected;
+	SPI_SCK_expected_prev = SPI_SCK_expected;
+	SPI_SS_N_expected_prev = SPI_SS_N_expected;
+	TX_out_expected_prev = TX_out_expected;
+end
+
+
+
+// expected ack_o
+initial
+begin
+	ack_o_expected = 1'bX;
+end 
+// expected Detect_to_tx[ 3 ]
+initial
+begin
+	Detect_to_tx_expected[3] = 1'bX;
+end 
+// expected Detect_to_tx[ 2 ]
+initial
+begin
+	Detect_to_tx_expected[2] = 1'bX;
+end 
+// expected Detect_to_tx[ 1 ]
+initial
+begin
+	Detect_to_tx_expected[1] = 1'bX;
+end 
+// expected Detect_to_tx[ 0 ]
+initial
+begin
+	Detect_to_tx_expected[0] = 1'bX;
+end 
+
+// expected SPI_MOSI
+initial
+begin
+	SPI_MOSI_expected = 1'bX;
+end 
+
+// expected SPI_SCK
+initial
+begin
+	SPI_SCK_expected = 1'bX;
+end 
+
+// expected SPI_SS_N
+initial
+begin
+	SPI_SS_N_expected = 1'bX;
+end 
+
+// expected TX_out
+initial
+begin
+	TX_out_expected = 1'bX;
+end 
+// generate trigger
+always @(ack_o_expected or ack_o or Detect_to_tx_expected or Detect_to_tx or SPI_MOSI_expected or SPI_MOSI or SPI_SCK_expected or SPI_SCK or SPI_SS_N_expected or SPI_SS_N or TX_out_expected or TX_out)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected ack_o = %b | expected Detect_to_tx = %b | expected SPI_MOSI = %b | expected SPI_SCK = %b | expected SPI_SS_N = %b | expected TX_out = %b | ",ack_o_expected_prev,Detect_to_tx_expected_prev,SPI_MOSI_expected_prev,SPI_SCK_expected_prev,SPI_SS_N_expected_prev,TX_out_expected_prev);
+	$display("| real ack_o = %b | real Detect_to_tx = %b | real SPI_MOSI = %b | real SPI_SCK = %b | real SPI_SS_N = %b | real TX_out = %b | ",ack_o_prev,Detect_to_tx_prev,SPI_MOSI_prev,SPI_SCK_prev,SPI_SS_N_prev,TX_out_prev);
+`endif
+	if (
+		( ack_o_expected_prev !== 1'bx ) && ( ack_o_prev !== ack_o_expected_prev )
+		&& ((ack_o_expected_prev !== last_ack_o_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port ack_o :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", ack_o_expected_prev);
+		$display ("     Real value = %b", ack_o_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_ack_o_exp = ack_o_expected_prev;
+	end
+	if (
+		( Detect_to_tx_expected_prev[0] !== 1'bx ) && ( Detect_to_tx_prev[0] !== Detect_to_tx_expected_prev[0] )
+		&& ((Detect_to_tx_expected_prev[0] !== last_Detect_to_tx_exp[0]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Detect_to_tx[0] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Detect_to_tx_expected_prev);
+		$display ("     Real value = %b", Detect_to_tx_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_Detect_to_tx_exp[0] = Detect_to_tx_expected_prev[0];
+	end
+	if (
+		( Detect_to_tx_expected_prev[1] !== 1'bx ) && ( Detect_to_tx_prev[1] !== Detect_to_tx_expected_prev[1] )
+		&& ((Detect_to_tx_expected_prev[1] !== last_Detect_to_tx_exp[1]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Detect_to_tx[1] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Detect_to_tx_expected_prev);
+		$display ("     Real value = %b", Detect_to_tx_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_Detect_to_tx_exp[1] = Detect_to_tx_expected_prev[1];
+	end
+	if (
+		( Detect_to_tx_expected_prev[2] !== 1'bx ) && ( Detect_to_tx_prev[2] !== Detect_to_tx_expected_prev[2] )
+		&& ((Detect_to_tx_expected_prev[2] !== last_Detect_to_tx_exp[2]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Detect_to_tx[2] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Detect_to_tx_expected_prev);
+		$display ("     Real value = %b", Detect_to_tx_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_Detect_to_tx_exp[2] = Detect_to_tx_expected_prev[2];
+	end
+	if (
+		( Detect_to_tx_expected_prev[3] !== 1'bx ) && ( Detect_to_tx_prev[3] !== Detect_to_tx_expected_prev[3] )
+		&& ((Detect_to_tx_expected_prev[3] !== last_Detect_to_tx_exp[3]) ||
+			on_first_change[2])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port Detect_to_tx[3] :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", Detect_to_tx_expected_prev);
+		$display ("     Real value = %b", Detect_to_tx_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[2] = 1'b0;
+		last_Detect_to_tx_exp[3] = Detect_to_tx_expected_prev[3];
+	end
+	if (
+		( SPI_MOSI_expected_prev !== 1'bx ) && ( SPI_MOSI_prev !== SPI_MOSI_expected_prev )
+		&& ((SPI_MOSI_expected_prev !== last_SPI_MOSI_exp) ||
+			on_first_change[3])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SPI_MOSI :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SPI_MOSI_expected_prev);
+		$display ("     Real value = %b", SPI_MOSI_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[3] = 1'b0;
+		last_SPI_MOSI_exp = SPI_MOSI_expected_prev;
+	end
+	if (
+		( SPI_SCK_expected_prev !== 1'bx ) && ( SPI_SCK_prev !== SPI_SCK_expected_prev )
+		&& ((SPI_SCK_expected_prev !== last_SPI_SCK_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SPI_SCK :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SPI_SCK_expected_prev);
+		$display ("     Real value = %b", SPI_SCK_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_SPI_SCK_exp = SPI_SCK_expected_prev;
+	end
+	if (
+		( SPI_SS_N_expected_prev !== 1'bx ) && ( SPI_SS_N_prev !== SPI_SS_N_expected_prev )
+		&& ((SPI_SS_N_expected_prev !== last_SPI_SS_N_exp) ||
+			on_first_change[5])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port SPI_SS_N :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", SPI_SS_N_expected_prev);
+		$display ("     Real value = %b", SPI_SS_N_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[5] = 1'b0;
+		last_SPI_SS_N_exp = SPI_SS_N_expected_prev;
+	end
+	if (
+		( TX_out_expected_prev !== 1'bx ) && ( TX_out_prev !== TX_out_expected_prev )
+		&& ((TX_out_expected_prev !== last_TX_out_exp) ||
+			on_first_change[6])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port TX_out :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", TX_out_expected_prev);
+		$display ("     Real value = %b", TX_out_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[6] = 1'b0;
+		last_TX_out_exp = TX_out_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module Ossiloscope_MCP3202_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg CLK;
+reg RST_N;
+reg SPI_MISO;
+reg STARTX;
+// wires                                               
+wire ack_o;
+wire [3:0] Detect_to_tx;
+wire SPI_MOSI;
+wire SPI_SCK;
+wire SPI_SS_N;
+wire TX_out;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+Ossiloscope_MCP3202 i1 (
+// port map - connection between master ports and signals/registers   
+	.ack_o(ack_o),
+	.CLK(CLK),
+	.Detect_to_tx(Detect_to_tx),
+	.RST_N(RST_N),
+	.SPI_MISO(SPI_MISO),
+	.SPI_MOSI(SPI_MOSI),
+	.SPI_SCK(SPI_SCK),
+	.SPI_SS_N(SPI_SS_N),
+	.STARTX(STARTX),
+	.TX_out(TX_out)
+);
+
+// CLK
+always
+begin
+	CLK = 1'b0;
+	CLK = #5000 1'b1;
+	#5000;
+end 
+
+// RST_N
+initial
+begin
+	RST_N = 1'b1;
+end 
+
+// SPI_MISO
+initial
+begin
+	SPI_MISO = 1'b0;
+end 
+
+// STARTX
+initial
+begin
+	STARTX = 1'b1;
+	STARTX = #130000 1'b0;
+	STARTX = #100000 1'b1;
+	STARTX = #260000 1'b0;
+	STARTX = #110000 1'b1;
+end 
+
+Ossiloscope_MCP3202_vlg_sample_tst tb_sample (
+	.CLK(CLK),
+	.RST_N(RST_N),
+	.SPI_MISO(SPI_MISO),
+	.STARTX(STARTX),
+	.sampler_tx(sampler)
+);
+
+Ossiloscope_MCP3202_vlg_check_tst tb_out(
+	.ack_o(ack_o),
+	.Detect_to_tx(Detect_to_tx),
+	.SPI_MOSI(SPI_MOSI),
+	.SPI_SCK(SPI_SCK),
+	.SPI_SS_N(SPI_SS_N),
+	.TX_out(TX_out),
+	.sampler_rx(sampler)
+);
+endmodule
+

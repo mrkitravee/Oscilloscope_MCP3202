@@ -1,0 +1,19 @@
+
+State Machine - |Oscilloscope_MCP3202|rs232_tx:TX1|state
+Name state.SEND_STOP_BIT state.SEND_BITS state.SEND_START_BIT state.WAIT_FOR_REQ 
+state.WAIT_FOR_REQ 0 0 0 0 
+state.SEND_START_BIT 0 0 1 1 
+state.SEND_BITS 0 1 0 1 
+state.SEND_STOP_BIT 1 0 0 1 
+
+State Machine - |Oscilloscope_MCP3202|SPI_master:SPI1|state
+Name state.S8 state.S7 state.S6 state.S5 state.S4 state.S3 state.S2 state.S1 state.S0 
+state.S0 0 0 0 0 0 0 0 0 0 
+state.S1 0 0 0 0 0 0 0 1 1 
+state.S2 0 0 0 0 0 0 1 0 1 
+state.S3 0 0 0 0 0 1 0 0 1 
+state.S4 0 0 0 0 1 0 0 0 1 
+state.S5 0 0 0 1 0 0 0 0 1 
+state.S6 0 0 1 0 0 0 0 0 1 
+state.S7 0 1 0 0 0 0 0 0 1 
+state.S8 1 0 0 0 0 0 0 0 1 
