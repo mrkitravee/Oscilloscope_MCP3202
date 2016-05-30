@@ -1,5 +1,4 @@
-# 2-Channel Oscilloscope 
-
+# 2-channel FPGA based Digital Oscilloscope
 Board : FPGA EP3C10E144E8 
 
 Analog to digital converter(ADC) : MCP3202
