@@ -11,3 +11,6 @@ user guide : http://oscilloscopeproject.blogspot.com/2016/05/test1_27.html
 
 vedio demo : https://www.youtube.com/watch?v=QChHlru5QlQ
 
+contact us : https://www.facebook.com/KitraveeSiwatkittisuk
+             https://www.facebook.com/jaschatsada.nganiam
+             https://www.facebook.com/JittipongManus
