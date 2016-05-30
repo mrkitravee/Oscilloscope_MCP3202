@@ -7,4 +7,7 @@ Program : Quatus II 13.1  , processing 3.02 or later
 
 blogger : http://oscilloscopeproject.blogspot.com
 
+user guide : http://oscilloscopeproject.blogspot.com/2016/05/test1_27.html
+
 vedio demo : https://www.youtube.com/watch?v=QChHlru5QlQ
+
